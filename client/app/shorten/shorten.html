@@ -1,13 +1,15 @@
 <div id='container'>
 <!-- Your code here -->
-<h1>SHORTEN</h1>
-  <div class='navigation'>
-    <ul>
-      <li><a href='#/links' class='links'>All Links</a></li>
-      <li><a href='#/shorten'>Shorten</a></li>
-    </ul>
-    <a href='/logout' class='logout'>Logout</a>
-  </div>
+<form name="shortenForm" >
+  <input name="shortenFormInput" placeholder='Put Link Here' required ng-model="link.url" type="url" novalidate/>
+  <button ng-click="addLink()" ng-disabled='shortenForm.$invalid'>Submit</button>
+</form>
+<div ng-show="shortenForm.shortenFormInput.$error.required && shortenForm.$dirty" class="message">
+  <h2>URL required</h2>
+</div>
+<div ng-show='shortenForm.shortenFormInput.$error.url && shortenForm.$dirty' class='message'>
+  <h2>URL is not valid</h2>
+</div>
 </div>
 
 

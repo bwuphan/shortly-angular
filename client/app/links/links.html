@@ -1,11 +1,14 @@
 <div id='container' ng-controller="LinksController">
   <!-- Your html here -->
   <h1>LINKS</h1>
-  <div class='navigation'>
-    <ul>
-      <li><a href='#/links' class='links'>All Links</a></li>
-      <li><a href='#/shorten'>Shorten</a></li>
-    </ul>
-    <a href='/logout' class='logout'>Logout</a>
-  </div>
+  <input type="text" ng-model="search" placeholder="filter" />
+  <ul>
+    <li class="info" ng-repeat="link in data.links | filter:search | orderBy: 'created_at' : 'reverse'">
+      <img src="assets/redirect_icon.png">
+      <span class='title'>{{ link.title }}</span>
+      <span class='url'>{{ link.url }}</span>
+      <a href='{{ link.baseUrl }}/{{ link.code }}'>{{ link.baseUrl }}/{{ link.code }}</a>
+      <div class='visits'>{{ link.visits }}</div>
+    </li>
+  </ul>
 </div>

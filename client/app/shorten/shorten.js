@@ -6,7 +6,7 @@ angular.module('shortly.shorten', [])
   console.log('LINKS ARE', Links);
   $scope.link = {};
 
-  $scope.addLink = function(link) {
+  $scope.addLink = function() {
     Links.addOne($scope.link);
       // .then(function(link) {
       //   console.log('LINKS INSIDE ARE ', link);
